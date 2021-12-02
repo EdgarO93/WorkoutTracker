@@ -14,10 +14,24 @@ function calculateTotalWeight(data) {
 
   return totals;
 }
+//function to label workouts
+function workoutNames(data) {
+  let workouts = [];
+
+  data.forEach(workout => {
+    workout.exercises.forEach(exercise => {
+      workouts.push(exercise.name);
+    });
+  });
+  
+  return workouts;
+}
 
 function populateChart(data) {
   const durations = data.map(({ totalDuration }) => totalDuration);
   const pounds = calculateTotalWeight(data);
+  let workouts = workoutNames(data);
+
 
   const line = document.querySelector('#canvas').getContext('2d');
   const bar = document.querySelector('#canvas2').getContext('2d');
@@ -65,7 +79,7 @@ function populateChart(data) {
   let pieChart = new Chart(pie, {
     type: 'doughnut',
     data: {
-      labels,
+      labels: workouts,
       datasets: [
         {
           label: 'Exercises Performed',
