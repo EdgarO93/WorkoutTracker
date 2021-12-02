@@ -21,6 +21,7 @@ function populateChart(data) {
 
   const line = document.querySelector('#canvas').getContext('2d');
   const bar = document.querySelector('#canvas2').getContext('2d');
+  const pie = document.querySelector('#canvas3').getContext('2d');
 
   const labels = data.map(({ day }) => {
     const date = new Date(day);
@@ -60,6 +61,41 @@ function populateChart(data) {
       },
     },
   });
+
+  let pieChart = new Chart(pie, {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Exercises Performed',
+          backgroundColor: [   "#003f5c", "#2f4b7c",
+          "#665191",
+          "#a05195",
+          "#d45087",
+          "#f95d6a",
+          "#ff7c43",
+          "ffa600",
+          "#003f5c",
+          "#2f4b7c",
+          "#665191",
+          "#a05195",
+          "#d45087",
+          "#f95d6a",
+          "#ff7c43",
+          "ffa600",],
+          data: pounds,
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Exercises Performed',
+      },
+    },
+  });
+
 
   let barChart = new Chart(bar, {
     type: 'bar',
