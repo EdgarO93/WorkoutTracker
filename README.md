@@ -4,7 +4,7 @@
 Link to deployed site on Heroku: https://tracker-fitness-workouts.herokuapp.com/
 
 # Description
-An application to create and track daily workouts.
+This application tracks workouts made up of cardio and resistance exercises. It will show up total distance for the cardio exercises, total weight lifted as well as time spent working out in the dashboard stats sight. This application was interesting to work on to be able to use Mongo database and the Mongoose schema as well as to keep practing handling routes with Express. I also enjoyed learning about the charts.js. It was challenging to deploy to Heroku but I was able to figure out how to fix the deployment issues. For future versions, I would like to add animations to the charts and show data differently. 
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@ An application to create and track daily workouts.
 After downloading this repository, go into the folder of this project. Then run npm install or i. 
 
 ### Usage
-First run mySQL -u root -p and enter password. Source the schema.sql. Then edit the env.Example file with your MYSQL username and password. Then save your file as .env . Then you can use run npm seed to load the database, then run npm watch to run nodemon or run npm start to just run the server.js if there are no updates expected to be made. You can open Insomnia Core to enter any route create in the /routes/api directory. Using GET,POST,PUT and DELETE functions of Insomnia you can view and update the database.
+Make sure to have MongoDB installed. Then you can use run npm run seed to load the database, then run npm watch to run nodemon or run npm start to just run the server.js if there are no updates expected to be made. You can open Insomnia Core to enter any route create in the /routes/api directory. Using GET,POST,PUT and DELETE functions of Insomnia you can view and update the database. You can also use a program such as ROBO 3T to view the MongoDB collection.
 
 You can also visit the Heroku link above to see the deployed site.
 
@@ -29,7 +29,7 @@ You can also visit the Heroku link above to see the deployed site.
 Feel free to fork or clone this repo and make your own versions.
 
 ### Tests
-API Get, POST, PUT, and DELETE routes in Insomnia Core can be opened and tested to create,update and delete data in the database.
+None.
 
 
 ###  Screenshots 
