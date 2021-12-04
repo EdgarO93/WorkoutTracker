@@ -1,11 +1,11 @@
 // Dependencies
 const router = require("express").Router();
 
-const Workout = require("../models/workout.js");
+const db = require("../models");
 
 // route to add workouts to database
 router.post("/api/workouts", ({body}, res) => {
-  Workout.create({body})
+  db.Workout.create({body})
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
@@ -16,7 +16,7 @@ router.post("/api/workouts", ({body}, res) => {
 
 // adding exercise
 router.put("/api/workouts/:id", (req, res) => {
-  Workout.findOneAndUpdate(
+  db.Workout.findOneAndUpdate(
     { _id: req.params.id },
     {
       //The $inc operator increments a field by a specified value
@@ -36,7 +36,7 @@ router.put("/api/workouts/:id", (req, res) => {
 
 //to get last workout
 router.get("/api/workouts", (req, res) => {
-  Workout.find({})
+  db.Workout.find({})
     .then((dbWorkout) => {
       console.log("test", dbWorkout);
       res.json(dbWorkout);
@@ -48,7 +48,7 @@ router.get("/api/workouts", (req, res) => {
 
 //to grab all workouts
 router.get("/api/workouts/range", (req, res) => {
-  Workout.find({})
+  db.Workout.find({})
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
