@@ -4,8 +4,8 @@ const router = require("express").Router();
 const Workout = require("../models/workout.js");
 
 // route to add workouts to database
-router.post("/api/workouts", (req, res) => {
-  Workout.create({})
+router.post("/api/workouts", ({body}, res) => {
+  Workout.create({body})
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
